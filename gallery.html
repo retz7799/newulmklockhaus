@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery | New Ulm Klock Haus</title>
+  <meta name="description" content="Photo gallery for New Ulm Klock Haus vacation rental." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div><h1>New Ulm Klock Haus</h1><small>Vacation Rental • New Ulm, MN</small></div>
+        </a>
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="book.html">Check Availability</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Gallery</h2>
+          <p class="lead">Click any photo to view larger. Replace image files in /images.</p>
+        </div>
+        <a class="btn" href="book.html">Check Availability</a>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Replace/add as many as you want -->
+        <a class="g1" href="#" data-lb-src="images/exterior-1.jpg" data-lb-alt="Exterior view"><img src="images/exterior-1.jpg" alt="Exterior view"></a>
+        <a class="g2" href="#" data-lb-src="images/living-1.jpg" data-lb-alt="Living room"><img src="images/living-1.jpg" alt="Living room"></a>
+        <a class="g3" href="#" data-lb-src="images/kitchen-1.jpg" data-lb-alt="Kitchen"><img src="images/kitchen-1.jpg" alt="Kitchen"></a>
+        <a class="g4" href="#" data-lb-src="images/bed-1.jpg" data-lb-alt="Bedroom"><img src="images/bed-1.jpg" alt="Bedroom"></a>
+        <a class="g5" href="#" data-lb-src="images/experience-1.jpg" data-lb-alt="Experience detail"><img src="images/experience-1.jpg" alt="Experience detail"></a>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" data-lightbox>
+      <button class="close" type="button" data-lightbox-close>Close</button>
+      <img data-lightbox-img src="" alt="" />
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> New Ulm Klock Haus.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
