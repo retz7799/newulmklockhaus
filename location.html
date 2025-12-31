@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Location | New Ulm Klock Haus</title>
+  <meta name="description" content="Location, nearby attractions, and things to do near New Ulm Klock Haus." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div><h1>New Ulm Klock Haus</h1><small>Vacation Rental • New Ulm, MN</small></div>
+        </a>
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="book.html">Check Availability</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Location & Things To Do</h2>
+          <p class="lead">List your best nearby attractions + distances. Guests love specifics.</p>
+        </div>
+        <a class="btn btn-primary" href="book.html">Check Availability</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card card-pad">
+          <h3>Downtown New Ulm</h3>
+          <p>Shops, coffee, and restaurants. Add a walking or driving time here.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Breweries & Heritage</h3>
+          <p>New Ulm’s German heritage is a huge differentiator — lean into it.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Events & Weekends</h3>
+          <p>Weddings, festivals, Oktoberfest — add seasonal highlights and timing.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;" class="card card-pad">
+        <h3>Map</h3>
+        <p class="lead">Paste a Google Maps embed iframe here if you want. (Optional)</p>
+
+        <!-- Optional: Google Maps embed -->
+        <!--
+        <iframe
+          src="YOUR_GOOGLE_MAPS_EMBED_LINK"
+          width="100%" height="380" style="border:0;border-radius:16px; margin-top:.75rem;"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        -->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> New Ulm Klock Haus.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
