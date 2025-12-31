@@ -1,4 +1,4 @@
-klockhaus-site/
+newulmklockhaus/
 ├─ index.html
 ├─ gallery.html
 ├─ amenities.html
@@ -1028,3 +1028,4 @@ document.addEventListener("keydown", (e) => {
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
