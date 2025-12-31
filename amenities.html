@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amenities | New Ulm Klock Haus</title>
+  <meta name="description" content="Amenities, features, and house highlights for New Ulm Klock Haus." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div><h1>New Ulm Klock Haus</h1><small>Vacation Rental • New Ulm, MN</small></div>
+        </a>
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="book.html">Check Availability</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Amenities</h2>
+          <p class="lead">Replace these with your actual features. Keep it scannable.</p>
+        </div>
+        <a class="btn btn-primary" href="book.html">Check Availability</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card card-pad">
+          <h3>Comfort</h3>
+          <p>HVAC, quality bedding, towels, and a clean, comfortable layout.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Kitchen</h3>
+          <p>Full kitchen basics for real cooking: cookware, coffee setup, and dining space.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Work + Wi-Fi</h3>
+          <p>Reliable Wi-Fi and a setup that works for remote work if needed.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;" class="card card-pad">
+        <h3>What’s included</h3>
+        <div class="grid-3" style="margin-top:.75rem;">
+          <ul class="list">
+            <li><span class="dot"></span><span>High-speed Wi-Fi</span></li>
+            <li><span class="dot"></span><span>Smart TV / streaming</span></li>
+            <li><span class="dot"></span><span>Parking</span></li>
+          </ul>
+          <ul class="list">
+            <li><span class="dot"></span><span>Washer / dryer</span></li>
+            <li><span class="dot"></span><span>Heating / AC</span></li>
+            <li><span class="dot"></span><span>Family-friendly setup</span></li>
+          </ul>
+          <ul class="list">
+            <li><span class="dot"></span><span>Outdoor space (if applicable)</span></li>
+            <li><span class="dot"></span><span>Self check-in</span></li>
+            <li><span class="dot"></span><span>Local guidebook</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> New Ulm Klock Haus.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
