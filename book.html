@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book | New Ulm Klock Haus</title>
+  <meta name="description" content="Check availability and book your stay at New Ulm Klock Haus." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div><h1>New Ulm Klock Haus</h1><small>Vacation Rental • New Ulm, MN</small></div>
+        </a>
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="#inquire">Inquire</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Booking</h2>
+          <p class="lead">Choose one approach below. You can start simple and upgrade later.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card card-pad">
+          <h3>Option 1: Redirect to Airbnb/VRBO</h3>
+          <p>Fastest setup. Replace the link below with your listing URL.</p>
+          <div style="margin-top:.8rem;">
+            <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Book on Airbnb/VRBO</a>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <h3>Option 2: Embed a calendar</h3>
+          <p>OwnerRez / Lodgify / Hostaway embeds work well. Paste embed code here later.</p>
+          <div style="margin-top:.8rem;">
+            <a class="btn" href="#calendar">Add Calendar Embed</a>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <h3>Option 3: Direct inquiry</h3>
+          <p>Simple, no platform needed. You confirm dates and send a payment link.</p>
+          <div style="margin-top:.8rem;">
+            <a class="btn" href="#inquire">Inquiry Form</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="calendar" style="margin-top:1rem;" class="card card-pad">
+        <h3>Calendar Embed (Optional)</h3>
+        <p class="lead">If you use a booking tool, it will give you an iframe snippet you can paste here.</p>
+        <!-- Example placeholder:
+        <iframe src="EMBED_URL" width="100%" height="600" style="border:0;border-radius:16px;" loading="lazy"></iframe>
+        -->
+      </div>
+
+      <div id="inquire" style="margin-top:1rem;" class="card card-pad">
+        <h3>Inquiry Form</h3>
+        <p class="lead">This version uses a basic mailto flow (no backend). You can upgrade later.</p>
+
+        <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.75rem;">
+            <label>
+              Name<br />
+              <input class="btn" style="width:100%; justify-content:flex-start;" name="Name" required placeholder="Your name" />
+            </label>
+            <label>
+              Email<br />
+              <input class="btn" style="width:100%; justify-content:flex-start;" name="Email" required placeholder="you@email.com" />
+            </label>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.75rem; margin-top:.75rem;">
+            <label>
+              Check-in<br />
+              <input class="btn" style="width:100%; justify-content:flex-start;" name="Check-in" placeholder="YYYY-MM-DD" />
+            </label>
+            <label>
+              Check-out<br />
+              <input class="btn" style="width:100%; justify-content:flex-start;" name="Check-out" placeholder="YYYY-MM-DD" />
+            </label>
+          </div>
+
+          <label style="display:block; margin-top:.75rem;">
+            Message<br />
+            <textarea class="btn" style="width:100%; justify-content:flex-start; min-height:120px;" name="Message" placeholder="Tell us a bit about your trip."></textarea>
+          </label>
+
+          <div style="margin-top:.8rem;">
+            <button class="btn btn-primary" type="submit">Send Inquiry</button>
+          </div>
+
+          <p class="lead" style="margin-top:.8rem;">
+            Upgrade path: replace this mailto form with a form endpoint (Netlify Forms) or a booking engine.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> New Ulm Klock Haus.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
