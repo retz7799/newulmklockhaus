@@ -1,0 +1,1030 @@
+klockhaus-site/
+├─ index.html
+├─ gallery.html
+├─ amenities.html
+├─ location.html
+├─ book.html
+├─ css/
+│  └─ styles.css
+├─ js/
+│  └─ main.js
+└─ images/
+   ├─ hero.jpg
+   ├─ exterior-1.jpg
+   ├─ living-1.jpg
+   ├─ kitchen-1.jpg
+   ├─ bed-1.jpg
+   └─ ...
+
+/* ===== Klock Haus Starter Styles ===== */
+:root{
+  --bg: #0b1220;
+  --card: #0f1b33;
+  --text: #e8eefc;
+  --muted: #b6c2e2;
+  --brand: #f4b942;      /* warm gold */
+  --brand2: #78a6ff;     /* soft blue accent */
+  --border: rgba(232,238,252,.12);
+  --shadow: 0 12px 40px rgba(0,0,0,.35);
+  --radius: 16px;
+  --max: 1100px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(900px 500px at 15% 5%, rgba(120,166,255,.20), transparent 60%),
+              radial-gradient(900px 500px at 85% 10%, rgba(244,185,66,.18), transparent 55%),
+              var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; height:auto; display:block; }
+
+.container{ width:min(var(--max), calc(100% - 2rem)); margin:0 auto; }
+
+.skip-link{
+  position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip-link:focus{
+  position:static; width:auto; height:auto; padding:.75rem 1rem;
+  background: var(--brand); color:#111; border-radius: 10px;
+}
+
+header.site-header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(11,18,32,.75);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.9rem 0;
+  gap:1rem;
+}
+
+.brand{
+  display:flex; align-items:center; gap:.7rem;
+}
+.brand-mark{
+  width:36px; height:36px; border-radius: 12px;
+  background: linear-gradient(135deg, rgba(244,185,66,.95), rgba(120,166,255,.9));
+  box-shadow: var(--shadow);
+}
+.brand h1{
+  font-size:1.05rem; margin:0;
+  letter-spacing:.3px;
+}
+.brand small{
+  display:block; color: var(--muted); font-weight:500; margin-top:.1rem;
+}
+
+.nav-links{
+  display:flex; align-items:center; gap:1rem;
+}
+.nav-links a{
+  padding:.55rem .7rem;
+  border-radius: 10px;
+  color: var(--muted);
+}
+.nav-links a:hover{
+  background: rgba(232,238,252,.07);
+  color: var(--text);
+}
+.nav-cta{
+  display:flex; gap:.6rem; align-items:center;
+}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5rem;
+  padding:.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(232,238,252,.06);
+  color: var(--text);
+  font-weight: 650;
+  cursor:pointer;
+}
+.btn:hover{ background: rgba(232,238,252,.10); }
+.btn-primary{
+  border-color: rgba(244,185,66,.35);
+  background: linear-gradient(135deg, rgba(244,185,66,.95), rgba(244,185,66,.70));
+  color: #141414;
+}
+.btn-primary:hover{
+  filter: brightness(1.03);
+}
+.btn-ghost{
+  background: transparent;
+}
+
+.mobile-toggle{
+  display:none;
+  border:1px solid var(--border);
+  background: rgba(232,238,252,.06);
+  padding:.6rem .7rem;
+  border-radius: 12px;
+  cursor:pointer;
+  color: var(--text);
+}
+
+@media (max-width: 900px){
+  .nav-links{
+    position:absolute;
+    left:0; right:0; top:64px;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    background: rgba(11,18,32,.92);
+    border-bottom: 1px solid var(--border);
+    padding: .8rem 1rem 1rem 1rem;
+  }
+  .nav-links.show{ display:flex; }
+  .nav-links a{ padding:.8rem 1rem; }
+  .nav-cta{ width:100%; }
+  .nav-cta .btn{ width:100%; }
+  .mobile-toggle{ display:inline-flex; }
+}
+
+/* ===== Hero ===== */
+.hero{
+  padding: 3.2rem 0 1.6rem 0;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+.hero-card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(232,238,252,.05);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.hero-media{
+  height: 360px;
+  background: #101a30;
+  position: relative;
+}
+.hero-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.02);
+}
+.hero-media::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(11,18,32,.0), rgba(11,18,32,.78));
+}
+.hero-content{
+  position:absolute; inset:auto 0 0 0;
+  padding: 1.25rem 1.25rem 1.1rem 1.25rem;
+}
+.kicker{
+  display:inline-flex; gap:.5rem; align-items:center;
+  padding:.35rem .6rem;
+  border-radius: 999px;
+  background: rgba(244,185,66,.14);
+  border: 1px solid rgba(244,185,66,.22);
+  color: var(--text);
+  font-weight: 650;
+  font-size: .9rem;
+}
+.hero-title{
+  margin: .8rem 0 .35rem 0;
+  font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+  line-height: 1.18;
+}
+.hero-sub{
+  margin:0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+.hero-actions{
+  display:flex; flex-wrap:wrap;
+  gap:.65rem;
+  margin-top: 1rem;
+}
+
+.hero-side{
+  padding: 1.15rem;
+}
+.panel-title{
+  font-size:1.05rem; margin:0 0 .5rem 0;
+}
+.panel-muted{
+  margin:.25rem 0 1rem 0;
+  color: var(--muted);
+}
+.chips{
+  display:flex; flex-wrap:wrap; gap:.5rem;
+  margin: .75rem 0 1rem 0;
+}
+.chip{
+  border: 1px solid var(--border);
+  background: rgba(232,238,252,.06);
+  padding:.45rem .6rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: .9rem;
+}
+.list{
+  margin:0; padding:0; list-style:none;
+  display:grid; gap:.6rem;
+}
+.list li{
+  display:flex; gap:.6rem; align-items:flex-start;
+  color: var(--muted);
+}
+.dot{
+  width:10px; height:10px; margin-top:.35rem;
+  border-radius: 999px;
+  background: rgba(120,166,255,.9);
+  box-shadow: 0 0 0 4px rgba(120,166,255,.12);
+}
+
+@media (max-width: 900px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .hero-media{ height: 300px; }
+}
+
+/* ===== Sections ===== */
+.section{
+  padding: 1.2rem 0 2.4rem 0;
+}
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.section h2{
+  margin:0;
+  font-size: 1.45rem;
+}
+.section p.lead{
+  margin:.3rem 0 0 0;
+  color: var(--muted);
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 900px){
+  .grid-3{ grid-template-columns: 1fr; }
+}
+
+.card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(232,238,252,.05);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.card-pad{ padding: 1rem; }
+
+.card h3{ margin:.2rem 0 .35rem 0; font-size:1.1rem; }
+.card p{ margin:0; color: var(--muted); }
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: .75rem;
+}
+.gallery-grid a{
+  display:block;
+  border-radius: 14px;
+  overflow:hidden;
+  border: 1px solid var(--border);
+  background: rgba(232,238,252,.05);
+}
+.gallery-grid img{
+  width:100%; height:100%; object-fit:cover;
+  transition: transform .25s ease;
+}
+.gallery-grid a:hover img{ transform: scale(1.02); }
+
+.g1{ grid-column: span 7; height: 320px; }
+.g2{ grid-column: span 5; height: 320px; }
+.g3{ grid-column: span 4; height: 220px; }
+.g4{ grid-column: span 4; height: 220px; }
+.g5{ grid-column: span 4; height: 220px; }
+
+@media (max-width: 900px){
+  .gallery-grid{ grid-template-columns: 1fr; }
+  .g1,.g2,.g3,.g4,.g5{ grid-column: auto; height: 220px; }
+}
+
+/* ===== Booking band ===== */
+.band{
+  border: 1px solid rgba(244,185,66,.18);
+  background: linear-gradient(135deg, rgba(244,185,66,.10), rgba(120,166,255,.10));
+  border-radius: var(--radius);
+  padding: 1.1rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+}
+.band strong{ font-size:1.05rem; }
+.band span{ display:block; color: var(--muted); margin-top:.25rem; }
+@media (max-width: 900px){
+  .band{ flex-direction:column; align-items:stretch; }
+  .band .btn{ width:100%; }
+}
+
+/* ===== Footer ===== */
+footer{
+  border-top: 1px solid var(--border);
+  padding: 2rem 0 2.2rem 0;
+  color: var(--muted);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 1rem;
+}
+.footer-grid a{ color: var(--text); }
+.footer-grid a:hover{ text-decoration: underline; }
+@media (max-width: 900px){
+  .footer-grid{ grid-template-columns: 1fr; }
+}
+
+/* ===== Simple Lightbox ===== */
+.lightbox{
+  position:fixed; inset:0;
+  background: rgba(0,0,0,.82);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding: 1rem;
+  z-index:1000;
+}
+.lightbox.show{ display:flex; }
+.lightbox img{
+  max-width: min(1100px, 100%);
+  max-height: 85vh;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.15);
+}
+.lightbox .close{
+  position:absolute;
+  top: 14px; right: 14px;
+  padding: .6rem .75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  cursor:pointer;
+}
+
+// ===== Klock Haus Starter JS =====
+
+// Mobile nav
+const toggleBtn = document.querySelector("[data-nav-toggle]");
+const navLinks = document.querySelector("[data-nav-links]");
+if (toggleBtn && navLinks) {
+  toggleBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+    const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+    toggleBtn.setAttribute("aria-expanded", String(!expanded));
+  });
+}
+
+// Simple lightbox for gallery links
+const lb = document.querySelector("[data-lightbox]");
+const lbImg = document.querySelector("[data-lightbox-img]");
+const lbClose = document.querySelector("[data-lightbox-close]");
+
+function openLightbox(src, alt) {
+  if (!lb || !lbImg) return;
+  lbImg.src = src;
+  lbImg.alt = alt || "Photo";
+  lb.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox() {
+  if (!lb) return;
+  lb.classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll("[data-lb-src]").forEach((a) => {
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    openLightbox(a.getAttribute("data-lb-src"), a.getAttribute("data-lb-alt"));
+  });
+});
+
+if (lb) {
+  lb.addEventListener("click", (e) => {
+    if (e.target === lb) closeLightbox();
+  });
+}
+if (lbClose) lbClose.addEventListener("click", closeLightbox);
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeLightbox();
+});
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New Ulm Klock Haus | Vacation Rental</title>
+  <meta name="description" content="New Ulm Klock Haus — a distinctive vacation rental in New Ulm, Minnesota. Comfort, character, and an easy booking experience." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html" aria-label="New Ulm Klock Haus Home">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <h1>New Ulm Klock Haus</h1>
+            <small>Vacation Rental • New Ulm, MN</small>
+          </div>
+        </a>
+
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+          Menu
+        </button>
+
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+
+          <div class="nav-cta">
+            <!-- Replace the href with your direct booking link (Airbnb/VRBO/OwnerRez/etc.) -->
+            <a class="btn btn-primary" href="book.html">Check Availability</a>
+            <a class="btn btn-ghost" href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="hero-media">
+              <!-- Replace images/hero.jpg with your best hero photo -->
+              <img src="images/hero.jpg" alt="New Ulm Klock Haus exterior" />
+              <div class="hero-content">
+                <div class="kicker">Stay with character • Book direct-friendly</div>
+                <h2 class="hero-title">A distinctive New Ulm stay with comfort, space, and local charm.</h2>
+                <p class="hero-sub">
+                  Perfect for couples, families, and festival weekends — steps away from the best of New Ulm.
+                </p>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href="book.html">Check Availability</a>
+                  <a class="btn" href="gallery.html">View Photos</a>
+                  <a class="btn btn-ghost" href="amenities.html">See Amenities</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card hero-side">
+            <h3 class="panel-title">Quick Highlights</h3>
+            <p class="panel-muted">Swap these with your real selling points (sleeps, baths, unique features).</p>
+
+            <div class="chips">
+              <div class="chip">Sleeps: X</div>
+              <div class="chip">Beds: X</div>
+              <div class="chip">Baths: X</div>
+              <div class="chip">Downtown access</div>
+              <div class="chip">Full kitchen</div>
+            </div>
+
+            <ul class="list">
+              <li><span class="dot"></span><span><strong>Easy arrival:</strong> Clear check-in instructions and a smooth guest experience.</span></li>
+              <li><span class="dot"></span><span><strong>Stay comfortable:</strong> Reliable Wi-Fi, clean spaces, and thoughtful touches.</span></li>
+              <li><span class="dot"></span><span><strong>New Ulm moments:</strong> Great base for festivals, weddings, and weekend getaways.</span></li>
+            </ul>
+
+            <div style="margin-top:1rem;">
+              <a class="btn btn-primary" href="book.html">Book / Inquire</a>
+              <a class="btn" href="location.html" style="margin-left:.4rem;">Things To Do</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE CARDS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Why guests choose Klock Haus</h2>
+            <p class="lead">Three reasons to stay — keep it simple, specific, and true.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card card-pad">
+            <h3>Comfort + Space</h3>
+            <p>Room to settle in — ideal for families, friends, and longer weekend stays.</p>
+          </div>
+          <div class="card card-pad">
+            <h3>Local Character</h3>
+            <p>Lean into New Ulm’s charm — your stay should feel unique, not generic.</p>
+          </div>
+          <div class="card card-pad">
+            <h3>Convenient Location</h3>
+            <p>Close to downtown spots, events, and the best things to do in town.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINI GALLERY -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Photo preview</h2>
+            <p class="lead">Lead with your strongest photos: exterior → living → kitchen → primary bedroom.</p>
+          </div>
+          <a class="btn" href="gallery.html">Open Full Gallery</a>
+        </div>
+
+        <div class="gallery-grid">
+          <a class="g1" href="gallery.html">
+            <img src="images/exterior-1.jpg" alt="Exterior view" />
+          </a>
+          <a class="g2" href="gallery.html">
+            <img src="images/living-1.jpg" alt="Living room" />
+          </a>
+          <a class="g3" href="gallery.html">
+            <img src="images/kitchen-1.jpg" alt="Kitchen" />
+          </a>
+          <a class="g4" href="gallery.html">
+            <img src="images/bed-1.jpg" alt="Bedroom" />
+          </a>
+          <a class="g5" href="gallery.html">
+            <img src="images/experience-1.jpg" alt="Experience detail" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING BAND -->
+    <section class="section">
+      <div class="container">
+        <div class="band">
+          <div>
+            <strong>Ready to check dates?</strong>
+            <span>Keep the booking flow simple. One primary call-to-action, repeated.</span>
+          </div>
+          <a class="btn btn-primary" href="book.html">Check Availability</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER ANCHOR -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="card card-pad">
+          <h2 style="margin:.1rem 0 .6rem 0;">Contact</h2>
+          <p class="lead">Replace with your email/phone. You can also use a form provider later if desired.</p>
+          <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem;">
+            <a class="btn" href="mailto:your-email@example.com">Email</a>
+            <a class="btn" href="tel:+11234567890">Call/Text</a>
+            <a class="btn btn-ghost" href="location.html">Location + Things To Do</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom:.5rem;">
+            <div class="brand-mark" aria-hidden="true"></div>
+            <div>
+              <strong>New Ulm Klock Haus</strong><br/>
+              <span>Vacation Rental • New Ulm, Minnesota</span>
+            </div>
+          </div>
+          <small>© <span id="year"></span> New Ulm Klock Haus. All rights reserved.</small>
+        </div>
+        <div>
+          <strong>Quick Links</strong><br/>
+          <a href="book.html">Check Availability</a><br/>
+          <a href="gallery.html">Gallery</a><br/>
+          <a href="amenities.html">Amenities</a><br/>
+          <a href="location.html">Location</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery | New Ulm Klock Haus</title>
+  <meta name="description" content="Photo gallery for New Ulm Klock Haus vacation rental." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div><h1>New Ulm Klock Haus</h1><small>Vacation Rental • New Ulm, MN</small></div>
+        </a>
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="book.html">Check Availability</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Gallery</h2>
+          <p class="lead">Click any photo to view larger. Replace image files in /images.</p>
+        </div>
+        <a class="btn" href="book.html">Check Availability</a>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Replace/add as many as you want -->
+        <a class="g1" href="#" data-lb-src="images/exterior-1.jpg" data-lb-alt="Exterior view"><img src="images/exterior-1.jpg" alt="Exterior view"></a>
+        <a class="g2" href="#" data-lb-src="images/living-1.jpg" data-lb-alt="Living room"><img src="images/living-1.jpg" alt="Living room"></a>
+        <a class="g3" href="#" data-lb-src="images/kitchen-1.jpg" data-lb-alt="Kitchen"><img src="images/kitchen-1.jpg" alt="Kitchen"></a>
+        <a class="g4" href="#" data-lb-src="images/bed-1.jpg" data-lb-alt="Bedroom"><img src="images/bed-1.jpg" alt="Bedroom"></a>
+        <a class="g5" href="#" data-lb-src="images/experience-1.jpg" data-lb-alt="Experience detail"><img src="images/experience-1.jpg" alt="Experience detail"></a>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" data-lightbox>
+      <button class="close" type="button" data-lightbox-close>Close</button>
+      <img data-lightbox-img src="" alt="" />
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> New Ulm Klock Haus.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amenities | New Ulm Klock Haus</title>
+  <meta name="description" content="Amenities, features, and house highlights for New Ulm Klock Haus." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div><h1>New Ulm Klock Haus</h1><small>Vacation Rental • New Ulm, MN</small></div>
+        </a>
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="book.html">Check Availability</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Amenities</h2>
+          <p class="lead">Replace these with your actual features. Keep it scannable.</p>
+        </div>
+        <a class="btn btn-primary" href="book.html">Check Availability</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card card-pad">
+          <h3>Comfort</h3>
+          <p>HVAC, quality bedding, towels, and a clean, comfortable layout.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Kitchen</h3>
+          <p>Full kitchen basics for real cooking: cookware, coffee setup, and dining space.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Work + Wi-Fi</h3>
+          <p>Reliable Wi-Fi and a setup that works for remote work if needed.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;" class="card card-pad">
+        <h3>What’s included</h3>
+        <div class="grid-3" style="margin-top:.75rem;">
+          <ul class="list">
+            <li><span class="dot"></span><span>High-speed Wi-Fi</span></li>
+            <li><span class="dot"></span><span>Smart TV / streaming</span></li>
+            <li><span class="dot"></span><span>Parking</span></li>
+          </ul>
+          <ul class="list">
+            <li><span class="dot"></span><span>Washer / dryer</span></li>
+            <li><span class="dot"></span><span>Heating / AC</span></li>
+            <li><span class="dot"></span><span>Family-friendly setup</span></li>
+          </ul>
+          <ul class="list">
+            <li><span class="dot"></span><span>Outdoor space (if applicable)</span></li>
+            <li><span class="dot"></span><span>Self check-in</span></li>
+            <li><span class="dot"></span><span>Local guidebook</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> New Ulm Klock Haus.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Location | New Ulm Klock Haus</title>
+  <meta name="description" content="Location, nearby attractions, and things to do near New Ulm Klock Haus." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div><h1>New Ulm Klock Haus</h1><small>Vacation Rental • New Ulm, MN</small></div>
+        </a>
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="book.html">Check Availability</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Location & Things To Do</h2>
+          <p class="lead">List your best nearby attractions + distances. Guests love specifics.</p>
+        </div>
+        <a class="btn btn-primary" href="book.html">Check Availability</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card card-pad">
+          <h3>Downtown New Ulm</h3>
+          <p>Shops, coffee, and restaurants. Add a walking or driving time here.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Breweries & Heritage</h3>
+          <p>New Ulm’s German heritage is a huge differentiator — lean into it.</p>
+        </div>
+        <div class="card card-pad">
+          <h3>Events & Weekends</h3>
+          <p>Weddings, festivals, Oktoberfest — add seasonal highlights and timing.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;" class="card card-pad">
+        <h3>Map</h3>
+        <p class="lead">Paste a Google Maps embed iframe here if you want. (Optional)</p>
+
+        <!-- Optional: Google Maps embed -->
+        <!--
+        <iframe
+          src="YOUR_GOOGLE_MAPS_EMBED_LINK"
+          width="100%" height="380" style="border:0;border-radius:16px; margin-top:.75rem;"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        -->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> New Ulm Klock Haus.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book | New Ulm Klock Haus</title>
+  <meta name="description" content="Check availability and book your stay at New Ulm Klock Haus." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div><h1>New Ulm Klock Haus</h1><small>Vacation Rental • New Ulm, MN</small></div>
+        </a>
+        <button class="mobile-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="nav-links" data-nav-links>
+          <a href="gallery.html">Gallery</a>
+          <a href="amenities.html">Amenities</a>
+          <a href="location.html">Location</a>
+          <a href="book.html">Book</a>
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="#inquire">Inquire</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Booking</h2>
+          <p class="lead">Choose one approach below. You can start simple and upgrade later.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card card-pad">
+          <h3>Option 1: Redirect to Airbnb/VRBO</h3>
+          <p>Fastest setup. Replace the link below with your listing URL.</p>
+          <div style="margin-top:.8rem;">
+            <a class="btn btn-primary" href="https://example.com" target="_blank" rel="noopener">Book on Airbnb/VRBO</a>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <h3>Option 2: Embed a calendar</h3>
+          <p>OwnerRez / Lodgify / Hostaway embeds work well. Paste embed code here later.</p>
+          <div style="margin-top:.8rem;">
+            <a class="btn" href="#calendar">Add Calendar Embed</a>
+          </div>
+        </div>
+
+        <div class="card card-pad">
+          <h3>Option 3: Direct inquiry</h3>
+          <p>Simple, no platform needed. You confirm dates and send a payment link.</p>
+          <div style="margin-top:.8rem;">
+            <a class="btn" href="#inquire">Inquiry Form</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="calendar" style="margin-top:1rem;" class="card card-pad">
+        <h3>Calendar Embed (Optional)</h3>
+        <p class="lead">If you use a booking tool, it will give you an iframe snippet you can paste here.</p>
+        <!-- Example placeholder:
+        <iframe src="EMBED_URL" width="100%" height="600" style="border:0;border-radius:16px;" loading="lazy"></iframe>
+        -->
+      </div>
+
+      <div id="inquire" style="margin-top:1rem;" class="card card-pad">
+        <h3>Inquiry Form</h3>
+        <p class="lead">This version uses a basic mailto flow (no backend). You can upgrade later.</p>
+
+        <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.75rem;">
+            <label>
+              Name<br />
+              <input class="btn" style="width:100%; justify-content:flex-start;" name="Name" required placeholder="Your name" />
+            </label>
+            <label>
+              Email<br />
+              <input class="btn" style="width:100%; justify-content:flex-start;" name="Email" required placeholder="you@email.com" />
+            </label>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:.75rem; margin-top:.75rem;">
+            <label>
+              Check-in<br />
+              <input class="btn" style="width:100%; justify-content:flex-start;" name="Check-in" placeholder="YYYY-MM-DD" />
+            </label>
+            <label>
+              Check-out<br />
+              <input class="btn" style="width:100%; justify-content:flex-start;" name="Check-out" placeholder="YYYY-MM-DD" />
+            </label>
+          </div>
+
+          <label style="display:block; margin-top:.75rem;">
+            Message<br />
+            <textarea class="btn" style="width:100%; justify-content:flex-start; min-height:120px;" name="Message" placeholder="Tell us a bit about your trip."></textarea>
+          </label>
+
+          <div style="margin-top:.8rem;">
+            <button class="btn btn-primary" type="submit">Send Inquiry</button>
+          </div>
+
+          <p class="lead" style="margin-top:.8rem;">
+            Upgrade path: replace this mailto form with a form endpoint (Netlify Forms) or a booking engine.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> New Ulm Klock Haus.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
